@@ -44,15 +44,9 @@ module "alb" {
   subnets             = module.vpc.public_subnets
   environment         = var.environment
   alb_security_groups = [module.security_groups.alb]
-  alb_tls_cert_arn    = var.tsl_certificate_arn
   health_check_path   = var.health_check_path
 }
 
-module "ecr" {
-  source      = "./ecr"
-  name        = var.name
-  environment = var.environment
-}
 
 
 module "ecs" {
@@ -74,5 +68,4 @@ module "ecs" {
     { name = "PORT",
     value = var.container_port }
   ]
-  aws_ecr_repository_url = module.ecr.aws_ecr_repository_url
 }
