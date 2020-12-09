@@ -1,5 +1,6 @@
 variable "name" {
   description = "the name of your stack, e.g. \"demo\""
+  default = "sakel-terraform"
 }
 
 variable "environment" {
@@ -65,8 +66,4 @@ variable "container_memory" {
 variable "health_check_path" {
   description = "Http path for task health check"
   default     = "/health"
-}
-
-variable "tsl_certificate_arn" {
-  description = "The ARN of the certificate that the ALB uses for https"
 }
