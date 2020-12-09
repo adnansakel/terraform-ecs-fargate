@@ -36,32 +36,13 @@ resource "aws_alb_target_group" "main" {
   }
 }
 
-# Redirect to https listener
+
 resource "aws_alb_listener" "http" {
   load_balancer_arn = aws_lb.main.id
   port              = 80
   protocol          = "HTTP"
 
   default_action {
-    type = "redirect"
-
-    redirect {
-      port        = 80
-      protocol    = "HTTP"
-      status_code = "HTTP_301"
-    }
-  }
-}
-
-# Redirect traffic to target group
-resource "aws_alb_listener" "http" {
-    load_balancer_arn = aws_lb.main.id
-    port              = 80
-    protocol          = "HTTP"
-
-    ssl_policy        = "ELBSecurityPolicy-2016-08"
-
-    default_action {
         target_group_arn = aws_alb_target_group.main.id
         type             = "forward"
     }
