@@ -1,7 +1,3 @@
-provider "aws" {
-  region  = "eu-central-1"
-  version = "~> 2.32"
-}
 
 terraform {
   backend "remote" {
@@ -11,8 +7,18 @@ terraform {
       name = "terraform-example"
     }
   }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 2.70"
+    }
+  }
 }
 
+provider "aws" {
+  profile = "default"
+  region  = "eu-central-1"
+}
 
 resource "aws_instance" "example" {
   ami           = "ami-830c94e3"
