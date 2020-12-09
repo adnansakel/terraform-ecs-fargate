@@ -46,7 +46,7 @@ variable "service_desired_count" {
 
 variable "container_image" {
   description = "The image to be deployed"
-  default     = "922865216712.dkr.ecr.eu-central-1.amazonaws.com/dropwizard:1.1"
+  default     = "922865216712.dkr.ecr.eu-central-1.amazonaws.com/dropwizard"
 }
 variable "container_port" {
   description = "The port where the Docker is exposed"
