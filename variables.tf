@@ -50,7 +50,7 @@ variable "container_image" {
 }
 variable "container_port" {
   description = "The port where the Docker is exposed"
-  default     = 8000
+  default     = 80
 }
 
 variable "container_cpu" {
