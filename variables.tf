@@ -46,7 +46,7 @@ variable "service_desired_count" {
 
 variable "container_image" {
   description = "The image to be deployed"
-  default     = "922865216712.dkr.ecr.eu-central-1.amazonaws.com/dropwizard"
+  default     = "922865216712.dkr.ecr.eu-central-1.amazonaws.com/dropwizard:latest"
 }
 variable "container_port" {
   description = "The port where the Docker is exposed"
@@ -65,5 +65,5 @@ variable "container_memory" {
 
 variable "health_check_path" {
   description = "Http path for task health check"
-  default     = "/health"
+  default     = "/"
 }
