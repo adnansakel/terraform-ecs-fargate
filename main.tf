@@ -60,7 +60,7 @@ module "ecs" {
   container_image             = var.container_image
   container_port              = var.container_port
   container_cpu               = var.container_cpu
-  container_memory            = var.container_memory
+  container_memory            = '512'
   service_desired_count       = var.service_desired_count
   container_environment = [
     { name = "LOG_LEVEL",
